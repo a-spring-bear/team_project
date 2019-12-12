@@ -132,13 +132,18 @@ Page({
     })
     wx.hideLoading()
     wx.hideNavigationBarLoading()
-
+    
   },
   onLoad: function(options) {
+    var that=this
+    // setInterval(function () {
+    //   that.load();
+    //   console.log("轮播请求5秒触发一次");
+    // }, 5000)    
     wx.showLoading({
       title: '加载中....',
     })
-    this.load()
+    that.load()
     //生命周期函数--监听页面加载
   },
   onPullDownRefresh: function() {

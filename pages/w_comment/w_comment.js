@@ -69,32 +69,54 @@ Page({
       success(res) {
         console.log(res)
         that.setData({
-          head_link: res.data.data.head_link,
+          //head_link: res.data.data.head_link,
           telephone1: res.data.data.telephone_customer,
           telephone2: res.data.data.telephone_delivery,
           order_number: res.data.data.order_number
         })
-        console.log(that.data.telephone1)
-        console.log(that.data.telephone2)
+        console.log("customer：" + that.data.telephone1)
+        console.log("delivery:" + that.data.telephone2)
+        //筛选出要评价的是对方
+        if (that.data.telephone1 == app.globalData.telephone) {
+          that.setData({
+            telephone: that.data.telephone2
+          })
+        } else {
+          that.setData({
+            telephone: that.data.telephone1
+          })
+        }
+        wx.request({
+          url: 'https://www.sssxfd.top:8080/show_personal_information',
+          method: "POST",
+          header: {
+            'content-type': ' application/json'
+          },
+          data: {
+            error_code: 0,
+            data: {
+              telephone: that.data.telephone,
+            }
+          },
+          //加载出被评价人的订单
+          success(res) {
+            console.log(res)
+            that.setData({
+              head_link: res.data.data[0].head_link
+            })
+          }
+        })
       }
     })
   },
   submit: function() {
     var that = this;
-    if (that.data.telephone1 == app.globalData.telephone) {
-      that.setData({
-        telephone: that.data.telephone1
-      })
-    } else {
-      that.setData({
-        telephone: that.data.telephone2
-      })
-    }
+    
     console.log("res:" + this.data.result)
     console.log("tel:" + this.data.telephone)
-   
+
     wx.request({
-      url: 'https://www.sssxfd.top:8080/show_order_detail',
+      url: 'https://www.sssxfd.top:8080/content',
       header: {
         'content-type': ' application/json'
       },
@@ -111,7 +133,7 @@ Page({
         console.log("ord_num:" + that.data.order_number)
         console.log("res:" + that.data.result)
         console.log("tel:" + that.data.telephone)
-        console.log("res:"+res)
+        console.log("res:" + res)
         wx.showModal({
           title: '评价成功',
           content: '',
@@ -120,13 +142,7 @@ Page({
           confirmColor: '#fde073', //确定文字的颜色
           success: function(res) {
             if (res.confirm) {
-              //点击确定,默认隐藏弹框
-            //   wx.navigateBack({
-                
-            //   })({
-            //     url: '/pages/myorder/myorder',
-            //   })
-              wx.redirectTo({
+              wx.navigateBack({
                 url: '/pages/myorder/myorder',
               })
             }

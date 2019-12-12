@@ -378,8 +378,15 @@ Page({
     })
   },
   onLoad: function (options) {
-    console.log("options:" + options)
-    this.load()
+    var that = this
+    setInterval(function () {
+      that.load();
+      console.log("轮播请求5秒触发一次");
+    }, 8000)
+    wx.showLoading({
+      title: '加载中....',
+    })
+    that.load()
   },
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading()

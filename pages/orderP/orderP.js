@@ -19,6 +19,7 @@ Page({
     neutral_appraise: 0,
     good_appraise: 0,
     bad_appraise: 0,
+    result_time:""
   },
   formsubmit:function(e){
     console.log("配送员备注：" + e.detail.value.remark)
@@ -37,10 +38,11 @@ Page({
           s_dormitory_1: that.data.s_dormitory_1,
           s_dormitory_2: that.data.s_dormitory_2,
           money: that.data.money,
-          requirement_customer: that.data.requirement_delivery,
+          requirement_customer: that.data.requirement_customer,
           requirement_delivery: e.detail.value.remark,
           telephone_delivery: app.globalData.telephone ,
           telephone_customer: that.data.telephone_customer,
+          
         },
       },
       success(res) {
@@ -103,7 +105,9 @@ Page({
           neutral_appraise: res.data.data.neutral_appraise,
           good_appraise: res.data.data.good_appraise,
           bad_appraise: res.data.data.bad_appraise,
+          result_time: res.data.data.result_time
         })
+        console.log(that.data.result_time)
       }
 
     })

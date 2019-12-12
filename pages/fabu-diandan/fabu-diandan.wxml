@@ -21,7 +21,7 @@
           <view>
             <view class="input">
               <text space="emsp" class="name-top">设置配送费：</text>
-              <input class="add-kuang" type="text" name="fee" />
+              <input class="add-kuang" type="text" name="fee" value="{{inputValue}}" />
               <text space="emsp" class="ti_shi">元</text>
             </view>
             <view>
@@ -30,7 +30,7 @@
           </view>
 
           <view class="name">
-            <text space="emsp" class="name">预计配送时长：</text>
+            <text space="emsp" class="name">允许配送时长：</text>
             <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" name="time1">
               <view class="picker">
                 {{array[index]}}
@@ -68,11 +68,11 @@
           <view>
             <text space="emsp" id="peisong-address">配送地址：</text>
             <view class="input">
-              <input class="add-kuang1" type="text" name="lou" />
+              <input class="add-kuang1" type="text" name="lou" value="{{inputValue}}"/>
               <text space="emsp" class="ti_shi1">号楼</text>
             </view>
             <view class="input">
-              <input class="add-kuang1" type="text" name="men" />
+              <input class="add-kuang1" type="text" name="men" value="{{inputValue}}" />
               <text space="emsp" class="ti_shi1">宿舍</text>
             </view>
           </view>
@@ -81,7 +81,7 @@
           </view>
           <view class="name1">要求：</view>
           <view class="ask">
-            <input id="require" name="require" placeholder=" " />
+            <input id="require" name="require" placeholder=" " value="{{inputValue}}"/>
           </view>
 
           <view>
@@ -104,7 +104,7 @@
           <view>
             <view class="input">
               <text space="emsp" class="name-top">设置配送费：</text>
-              <input class="add-kuang" type="text" name="fee_" />
+              <input class="add-kuang" type="text" name="fee_" value="{{inputValue}}" />
               <text space="emsp" class="ti_shi">元</text>
             </view>
           </view>
@@ -149,7 +149,7 @@
           <view>
             <text space="emsp" id="peisong-address">配送地址：</text>
             <view class="input">
-              <input class="add-kuang1" type="text" name="lou_" />
+              <input class="add-kuang1" type="text" name="lou_" value="{{inputValue}}" />
               <text space="emsp" class="ti_shi1">号楼</text>
             </view>
             <!-- <view class="input">
@@ -162,7 +162,7 @@
           </view>
           <view class="name1">备注：</view>
           <view class="ask">
-            <input id="require" name="require_" placeholder=" " />
+            <input id="require" name="require_" placeholder=" " value="{{inputValue}}" />
           </view>
 
           <view>

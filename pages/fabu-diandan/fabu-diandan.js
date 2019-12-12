@@ -5,10 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dialogShow: false,
-    buttons: [{
-      text: '确定'
-    }],
+    inputValue:'',
     telephone: "",
     // tab切换 
     currentTab: 0,
@@ -188,6 +185,15 @@ Page({
       currentTab: e.detail.current,
     })
   },
+  //置空
+  refresh:function(){
+this.setData({
+inputValue:'',
+index:0,
+index1:0,
+index2:0
+})
+  },
   //点单
   formSubmit: function(e) {
     console.log(e)
@@ -208,13 +214,14 @@ Page({
           requirement_customer: e.detail.value.require,
           requirement_delivery: null, //配送员
           order_delivery_time: "null", //订单配对时间
-          scheduled_delivery_countdown: that.data.array2[e.detail.value.time2] ,
-          result_countdown:that.data.array[e.detail.value.time1] ,
+          scheduled_delivery_countdown: that.data.array[e.detail.value.time1] ,
+          result_countdown: that.data.array2[e.detail.value.time2] ,
           telephone_delivery: null,
           telephone_customer: that.data.telephone,
         }
       },
       success(res) {
+        that.refresh()
         console.log(res)
         wx.showModal({
           title: '发布成功',
@@ -257,8 +264,8 @@ Page({
           requirement_customer: null,
           requirement_delivery: e.detail.value.require_,
           order_delivery_time: "null",
-          scheduled_delivery_countdown: that.data.array2[e.detail.value.time2_],
-          result_countdown: that.data.array[e.detail.value.time1_],
+          scheduled_delivery_countdown: that.data.array[e.detail.value.time1_],
+          result_countdown: that.data.array2[e.detail.value.time2_],
           telephone_delivery: that.data.telephone,
           telephone_customer: null,
         }
@@ -275,6 +282,7 @@ Page({
             showCancel: false,
             success: function(res) {
               if (res.confirm) {
+                that.refresh()
                 //点击确定,默认隐藏弹框
                 wx.switchTab({
                   url: '/pages/home/home',

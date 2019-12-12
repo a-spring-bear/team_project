@@ -19,13 +19,7 @@ Page({
     bad_appraise: 0,
     telephone_delivery:"",
     telephone_customer:"",
-    buttons: [{
-      text: '取消'
-    }, {
-      text: '去填写'
-      }
-      ],
-    
+    result_time: ""
   },
   /**
    * 生命周期函数--监听页面加载
@@ -102,7 +96,6 @@ Page({
           s_dormitory_1: res.data.data.s_dormitory_1,
           scheduled_delivery_time: res.data.data.scheduled_delivery_time,
           money: res.data.data.money,
-          scheduled_delivery_time: res.data.data.scheduled_delivery_time,
           requirement_customer: res.data.data.requirement_customer,
           requirement_delivery: res.data.data.requirement_delivery,
           s_dormitory_2: res.data.data.s_dormitory_2,
@@ -111,6 +104,7 @@ Page({
           bad_appraise: res.data.data.bad_appraise,
           telephone_delivery: res.data.data.telephone_delivery,
           telephone_customer: res.data.data.telephone_customer,
+          result_time: res.data.data.result_time
         })
       }
     })

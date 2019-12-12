@@ -8,7 +8,7 @@
     </view>
 
     <view>
-      <text space="emsp">  用户好/中/差评数：{{good_appraise}}/{{bad_appraise}}/{{neutral_appraise}}</text>
+      <text space="emsp">  用户好/中/差评数：{{good_appraise}}/{{neutral_appraise}}/{{bad_appraise}}</text>
     </view>
 
     <view>
@@ -19,7 +19,7 @@
 
     <view>
       <text space="emsp">\n  配送费：<text >{{money}}¥\n\n</text></text>
-      <text space="emsp">  配送时间：<text >{{scheduled_delivery_time}}\n\n</text></text>
+      <text space="emsp">  预计送达时间：<text >{{result_time}}\n\n</text></text>
       <text space="emsp">  配送楼号：<text >{{s_dormitory_1}}#\n\n</text></text>
       <text space="emsp">  配送门号：<text >{{s_dormitory_2}}\n\n</text></text>
     </view>
